@@ -8,11 +8,21 @@ if($link === 0){
 //consulta 
 $consulta = " SELECT * FROM formulario " ;
 $resultado = $link->query($consulta);  
-//recorremos c/u registros
+// encabezado de la tabla
 echo '<table border="1">';
+echo '<tr>';
+echo '<th>Clave</th>';
+echo '<th>Nombre</th>';
+echo '<th>Teléfono</th>';
+echo '<th>Mensaje</th>';
+echo'</tr>';
+//recorremos c/u registros
 while ($fila = $resultado->fetch_assoc()){
     echo '<tr>';   /* fila de nuestra tabla */ 
-    echo  '<td>'.$fila['id'].'<td>' ; 
+    echo  '<td>'.$fila['id'].'</td>' ; 
+    echo  '<td>'.$fila['nombre'].'</td>' ; 
+    echo  '<td>'.$fila['telefono'].'</td>' ; 
+    echo  '<td>'.$fila['msj'].'</td>' ; 
 
 echo '</tr>';
 }
