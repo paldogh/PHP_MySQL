@@ -16,15 +16,21 @@ $mensaje=$_POST["msj"];
 $actualizar = "UPDATE formulario SET nombre='$nombre', telefono='$telefono', correo='$correo' , msj='$mensaje' WHERE id=$id     ";
 /*paso4 ejecutar la consulta */
 if(mysqli_query($link,$actualizar )){
-
-
-
+   if (msqli_affected_rows($link)>0) {
     echo '<script type="text/javascript">
   alert("datos actualizados :D");
 window.location.href="actualizar.html"
 </script>
 '; 
-}else{
+   } else {
+    echo '<script type="text/javascript">
+    alert("no existe ese registro");
+  window.location.href="actualizar.html"
+  </script>
+  '; 
+   }
+
+    }else{
     echo '<script type="text/javascript">
     alert("datos no actualizados :S");
   window.location.href="actualizar.html"
